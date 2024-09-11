@@ -18,7 +18,6 @@ export class ProveedoresService {
         Object.assign(proveedor, createProveedorDto);
 
         // Initialize 'rating' and 'organos_proveidos' with default values
-        proveedor.rating = 0;
         proveedor.organos_proveidos = 0;
         proveedor.organos = [];
 

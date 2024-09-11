@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {Controller, Get, Post, Body, Patch, Param, Delete, UseGuards} from '@nestjs/common';
 import { OrganosService } from './organos.service';
 import { CreateOrganoDto } from './dto/create-organo.dto';
 import { UpdateOrganoDto } from './dto/update-organo.dto';
+
 
 @Controller('organos')
 export class OrganosController {
@@ -11,6 +12,7 @@ export class OrganosController {
   create(@Body() createOrganoDto: CreateOrganoDto) {
     return this.organosService.create(createOrganoDto);
   }
+
 
   @Get()
   findAll() {

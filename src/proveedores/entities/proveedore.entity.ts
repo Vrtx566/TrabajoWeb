@@ -17,9 +17,6 @@ export class Proveedor {
     @Column({ type: 'varchar', length: 100 })
     ubicacion: string;
 
-    @Column({ type: 'decimal', default: 0 })
-    rating: number;
-
     @Column({ type: 'int', default: 0 })
     organos_proveidos: number;
 

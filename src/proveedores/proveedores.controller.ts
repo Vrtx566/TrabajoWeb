@@ -1,8 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ProveedoresService } from './proveedores.service';
-import { CreateProveedorDto } from './dto/create-proveedore.dto';
-import { UpdateProveedoreDto } from './dto/update-proveedore.dto';
+import {Body, Controller, Delete, Get, Param, Patch, Post, UseGuards} from '@nestjs/common';
+import {ProveedoresService} from './proveedores.service';
+import {CreateProveedorDto} from './dto/create-proveedore.dto';
+import {UpdateProveedoreDto} from './dto/update-proveedore.dto';
+import {UseRoleGuard} from "../use-role/use-role.guard";
+import {Roles} from "../auth/decorators/roles.decorator";
+import {Role} from "../enums/role.enum";
 
+@Roles(Role.PROVIDER)
+@UseGuards(UseRoleGuard)
 @Controller('proveedores')
 export class ProveedoresController {
   constructor(private readonly proveedoresService: ProveedoresService) {}
