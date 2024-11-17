@@ -31,6 +31,7 @@ import {SeedModule} from "./seed/seed.module";
             database: process.env.DB_NAME,
             autoLoadEntities: true,
             synchronize: true,
+            ssl: { rejectUnauthorized: false }
         }),
         ProveedoresModule,
         ClientesModule,

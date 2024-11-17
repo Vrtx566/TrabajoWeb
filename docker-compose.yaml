@@ -1,0 +1,18 @@
+services:
+  fundation-api:
+    image: backend-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: ${DB_PORT}
+      PORT: ${PORT}
+      SECRET_PASSWORD: ${SECRET_PASSWORD}
+    container_name: backend-api
