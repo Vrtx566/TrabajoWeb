@@ -29,6 +29,15 @@ export class ProveedoresController {
     return this.proveedoresService.findAll();
   }
 
+  //metodo obtener organos por proveedor
+    @Get('organos/:id')
+    @ApiOperation({ summary: 'Retrieve all organs by provider' })
+    @ApiResponse({ status: 200, description: 'Return all organs by provider.' })
+    @ApiResponse({ status: 404, description: 'No organs found.' })
+    findOrgansByProvider(@Param('id') id: string) {
+        return this.proveedoresService.findOrgansByProvider(id);
+    }
+
   @Get(':id')
   @ApiOperation({ summary: 'Retrieve a single provider by ID' })
   @ApiParam({ name: 'id', type: String, description: 'ID of the provider' })

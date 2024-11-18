@@ -28,6 +28,18 @@ export class ProveedoresService {
         return this.proveedoresRepository.find({relations: ['organos']});
     }
 
+    //metodo obtener organos por proveedor
+    async findOrgansByProvider(id: string): Promise<Proveedor> {
+        const proveedor = await this.proveedoresRepository.findOne({
+            where: { id },
+            relations: ['organos'] // Asegúrate de que 'organos' es el nombre correcto de la relación en tu entidad Proveedor
+        });
+        if (!proveedor) {
+            throw new NotFoundException(`Proveedor con ID ${id} no encontrado`);
+        }
+        return proveedor;
+    }
+
     async findOne(id: string): Promise<Proveedor> {
         const proveedor = await this.proveedoresRepository.findOne({where: {id}});
         if (!proveedor) {
