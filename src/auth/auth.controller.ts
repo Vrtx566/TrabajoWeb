@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import { LoginAuthDto } from './dto/login-dto';
+import {Check} from "typeorm";
 
 @ApiTags('auth')
 @Controller('auth')
@@ -25,6 +26,15 @@ export class AuthController {
   @ApiResponse({ status: 404, description: 'Not found.' })
   findAll() {
     return this.authService.findAll();
+  }
+
+  @Get('check/:token')
+    @ApiOperation({ summary: 'Check if a token is valid' })
+    @ApiParam({ name: 'token', type: String, description: 'Token to be checked' })
+    @ApiResponse({ status: 200, description: 'Token is valid.' })
+    @ApiResponse({ status: 401, description: 'Token is invalid.' })
+  check(@Param('token') token: string) {
+    return this.authService.checkToken(token);
   }
 
   @Get(':id')

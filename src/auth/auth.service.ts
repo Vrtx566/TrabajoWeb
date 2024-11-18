@@ -12,6 +12,7 @@ import * as bcrypt from 'bcrypt';
 import { LoginAuthDto} from "./dto/login-dto";
 import { JwtService} from "@nestjs/jwt";
 import {Role} from "../enums/role.enum";
+import * as process from "process";
 
 @Injectable()
 export class AuthService {
@@ -32,6 +33,17 @@ export class AuthService {
     } catch (err) {
       console.log(err);
       throw new BadRequestException(err.detail);
+    }
+  }
+
+  async checkToken(token: string) {
+    try {
+      const validToken = await this.jwtService.verify(token, {
+        secret: process.env.SECRET_KEY,
+      });
+      return true;
+    } catch (error) {
+      return false;
     }
   }
 

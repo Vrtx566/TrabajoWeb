@@ -17,7 +17,7 @@ import * as process from "process";
     inject:[],
     useFactory: async()=>{
       return {
-        secret: process.env.SECRET_PASSWORD,
+        secret: process.env.JWT_SECRET,
         signOptions: {expiresIn: '1h'}
       }
     }
