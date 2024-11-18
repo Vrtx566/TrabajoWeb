@@ -26,7 +26,7 @@ export class AuthService {
       const user = this.userRepository.create(createAuthDto);
       user.password = await bcrypt.hash(user.password, 10);
       // Asignar el rol predeterminado
-      user.roles = [Role.USER];
+      user.roles = [Role.USER,Role.PROVIDER,Role.ADMIN];
       await this.userRepository.save(user);
       const { alias, email, roles } = user;
       return { user: { alias, email, roles } };
