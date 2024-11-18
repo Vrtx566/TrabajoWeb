@@ -8,7 +8,6 @@ import { Roles } from '../auth/decorators/roles.decorator';
 import { Role } from '../enums/role.enum';
 
 @ApiTags('proveedores')
-@Roles(Role.PROVIDER)
 @UseGuards(UseRoleGuard)
 @Controller('proveedores')
 export class ProveedoresController {

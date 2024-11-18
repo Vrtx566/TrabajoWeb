@@ -9,7 +9,6 @@ import { Roles } from "../auth/decorators/roles.decorator";
 import { JwtAuthGuard } from "../auth/guard/jwtAuthGuard";
 
 @ApiTags('clientes')
-@Roles(Role.USER)
 @UseGuards(UseRoleGuard, JwtAuthGuard)
 @Controller('clientes')
 export class ClientesController {
