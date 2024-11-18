@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import { LoginAuthDto } from './dto/login-dto';
-import {Check} from "typeorm";
+
 
 @ApiTags('auth')
 @Controller('auth')

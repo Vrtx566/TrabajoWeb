@@ -3,8 +3,7 @@ import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBody } from '@nestjs/s
 import { ClientesService } from './clientes.service';
 import { CreateClienteDto } from './dto/create-cliente.dto';
 import { UpdateClienteDto } from './dto/update-cliente.dto';
-import { UseRoleGuard } from "../use-role/use-role.guard";
-import { JwtAuthGuard } from "../auth/guard/jwtAuthGuard";
+
 
 @ApiTags('clientes')
 @Controller('clientes')
